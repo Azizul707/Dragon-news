@@ -1,9 +1,10 @@
+import NavBar from "../components/navBar/NavBar";
 
 
 const Login = () => {
     return (
         <div>
-            this is login
+            <NavBar></NavBar>
         </div>
     );
 };

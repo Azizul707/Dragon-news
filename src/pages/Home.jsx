@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import Header from "../components/MainLayouts/Header/Header";
 import Marquee from "react-fast-marquee";
 import NavBar from "../components/navBar/NavBar";
+import Categories from "../Home/Categories";
+import Dnews from "../Home/Dnews";
+import LoginWith from "../Home/LoginWith";
 
 
 const Home = () => {
@@ -18,6 +21,18 @@ const Home = () => {
             </div>
             <div className="">
                 <NavBar></NavBar>
+            </div>
+            <div className="mt-10 grid lg:grid-cols-4 gap-6">
+                
+                <div className=" border">
+                <Categories></Categories>
+                </div>
+                <div className="col-span-2 border">
+                <Dnews></Dnews>
+                </div>
+                <div className="">
+                <LoginWith></LoginWith>
+                </div>
             </div>
         </div>
     );
