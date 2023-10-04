@@ -46,11 +46,11 @@ const LoginWith = () => {
             <div className="mt-10">
                 <div className="w-10/12 relative ">
                     <img src={qzone4} alt="" />
-                    <div className="absolute w-full h-full top-0 left-0 bg-transparent z-0">
+                    <div className="absolute w-full h-full top-0 left-0 bg-black bg-opacity-60 z-0">
                         <h5 className="text-white font-bold text-3xl text-center pt-14 z-20">Create an Amazing Newspaper</h5>
                         <p className="text-white text-center pt-6 px-4">Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
-                        <div className="px-14 pt-10">
-                        <button className="btn bg-[#D72050] outline-none border-none">Learn More</button>
+                        <div className="px-16 pt-10">
+                        <button className=" p-3 text-white  bg-[#D72050] outline-none border-none">Learn More</button>
                         </div>
                         
                     </div>

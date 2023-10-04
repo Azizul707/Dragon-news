@@ -14,7 +14,7 @@ const Home = () => {
             <div className="bg-[#F3F3F3] w-full p-5 mt-7 flex">
                 <button className="btn btn-error text-white">Latest</button>
                 <Marquee>
-                    <Link to='/login'>
+                    <Link>
                         <p className="text-[#403F3F] font-semibold">Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</p>
                     </Link>
                 </Marquee>
@@ -23,15 +23,15 @@ const Home = () => {
                 <NavBar></NavBar>
             </div>
             <div className="mt-10 grid lg:grid-cols-4 gap-6">
-                
-                <div className=" border">
-                <Categories></Categories>
+
+                <div className="">
+                    <Categories></Categories>
                 </div>
-                <div className="col-span-2 border">
-                <Dnews></Dnews>
+                <div className="col-span-2">
+                    <Dnews></Dnews>
                 </div>
                 <div className="">
-                <LoginWith></LoginWith>
+                    <LoginWith></LoginWith>
                 </div>
             </div>
         </div>
