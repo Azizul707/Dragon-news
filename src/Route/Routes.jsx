@@ -5,7 +5,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 
 
-const Rooutes = createBrowserRouter( [ {
+const Routes = createBrowserRouter( [ {
     path: '/',
     element: <MainLayouts></MainLayouts>,
     children: [
@@ -27,4 +27,4 @@ const Rooutes = createBrowserRouter( [ {
 
 } ] )
 
-export default Rooutes;
+export default Routes;

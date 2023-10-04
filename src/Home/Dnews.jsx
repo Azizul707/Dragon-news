@@ -15,7 +15,7 @@ const Dnews = () => {
         <div>
             <h1 className="text-xl font-semibold">Dragon News Home</h1>
             {
-                news.map(news=><ShowNews key={news.id} news={news}></ShowNews>)
+                news.map((news,idx)=><ShowNews key={idx} news={news}></ShowNews>)
             }
         </div>
     );

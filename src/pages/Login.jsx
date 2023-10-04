@@ -1,15 +1,31 @@
 import { Link } from "react-router-dom";
 import NavBar from "../components/navBar/NavBar";
-
+import { useContext, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+    const { userSingIn } = useContext( AuthContext );
+    const [error,setError]= useState('')
 
+    
     const handleLogin = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get( 'email' );
-        const password = form.get('password')
-        console.log(email,password);
+        const password = form.get( 'password' )
+
+        userSingIn( email, password )
+            .then( result => {
+                const success = "login success"
+                setError(success)
+            } )
+            .catch( error => {
+                const errorText = "In valid email and password";
+                setError(errorText)
+            } )
+        
+        
+       
     }
     return (
         <div>
@@ -26,8 +42,9 @@ const Login = () => {
                     <input className="border w-full p-2" type="password" name="password" placeholder="password" />
                     </div>
                     <div className="">
-                        <input className="mt-5 btn" type="submit" value='Login' />
+                        <input className="mt-5 btn" type="submit" defaultValue='Login' />
                     </div>
+                    <p>{error }</p>
                     <p className="mt-10 text-center">Do Not Have An Account <Link className="underline font-bold text-blue-500" to='/register'>Register</Link></p>
                 </form>
             </div>
