@@ -1,32 +1,44 @@
-import { Link } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../components/navBar/NavBar";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const { userSingIn } = useContext( AuthContext );
-    const [error,setError]= useState('')
+    const location = useLocation();
+    const navigate = useNavigate();
+   
+    
+    
 
     
-    const handleLogin = (e) => {
+    const handleLogin = ( e ) => {
         e.preventDefault();
-        const form = new FormData(e.currentTarget);
+        const form = new FormData( e.currentTarget );
         const email = form.get( 'email' );
         const password = form.get( 'password' )
 
         userSingIn( email, password )
             .then( result => {
-                const success = "login success"
-                setError(success)
+                const user = result.user;
+                toast.success( 'Successfully login!' )
+                navigate(location?.state ? location.state : '/')
+            
+                  
             } )
+            
             .catch( error => {
-                const errorText = "In valid email and password";
-                setError(errorText)
-            } )
+                const errorText = error.message;
+                toast.error( errorText );
+                
+            } );
         
         
        
-    }
+    };
+
     return (
         <div>
             <NavBar></NavBar>
@@ -44,7 +56,6 @@ const Login = () => {
                     <div className="">
                         <input className="mt-5 btn" type="submit" defaultValue='Login' />
                     </div>
-                    <p>{error }</p>
                     <p className="mt-10 text-center">Do Not Have An Account <Link className="underline font-bold text-blue-500" to='/register'>Register</Link></p>
                 </form>
             </div>

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 
 import { AiFillEye } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 
 const ShowNews = ( { news } ) => {
-    const { author, title, thumbnail_url, details, rating, total_view } = news;
+    const { author, title, image_url, details, rating, total_view ,_id} = news;
 
     return (
         <div className="p-2 my-10 shadow-lg">
@@ -22,12 +23,12 @@ const ShowNews = ( { news } ) => {
                     </div>
 
                 </div>
-                <div className=""><h2 className="text-[#403F3F] text-xl font-bold">{ title }</h2></div>
-                <div className="">
-                    <img className="w-[50rem] h-[25rem]" src={ thumbnail_url } alt="" />
+                <div className="mt-5"><h2 className="text-[#403F3F] text-xl font-bold">{ title }</h2></div>
+                <div className="w-[37rem] h-[25rem] mt-4">
+                    <img className="w-full h-full" src={ image_url } alt="" />
                 </div>
                 <div className="mt-4"><p className="text-sm">{ details.slice( 0, 250 ) }</p>
-                    <button className="mt-2 text-[#FF8C47] font-semibold">Read More</button>
+                    <Link to={`news/${_id}`}><button className="mt-2 text-[#FF8C47] font-semibold">Read More</button></Link>
                 </div><hr />
                 <div className="flex justify-between mt-5  p-5">
                     <span><div className="rating">

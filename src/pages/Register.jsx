@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import NavBar from "../components/navBar/NavBar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 
@@ -9,6 +10,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 const Register = () => {
 
     const { createUser } = useContext( AuthContext );
+   
 
 
 
@@ -26,12 +28,15 @@ const Register = () => {
             .then( result => {
 
                 const user = result.user;
+                toast.success('Successfully Registered!')
+
+                
                 
 
             } )
             .catch( error => {
                 const errorMessage = error.message;
-                alert(errorMessage)
+                toast.error({errorMessage})
             } );
 
 
@@ -62,6 +67,7 @@ const Register = () => {
                         <label htmlFor="password">Password</label><br />
                         <input className="border w-full p-2" type="password" name="password" placeholder="password" />
                     </div>
+                    
                     <div className="">
                         <input className="mt-5 btn" type="submit" defaultValue='Register' />
                     </div>

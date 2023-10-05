@@ -3,20 +3,35 @@ import qzone from '../assets/qZone1.png';
 import qzone2 from '../assets/qZone2.png';
 import qzone3 from '../assets/qZone3.png';
 import qzone4 from '../assets/bg1.png';
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
+
 
 const LoginWith = () => {
+    const { googleLogin,githubLogin} = useContext( AuthContext );
+    const handleLoginWithSocialMedia = ( media ) => {
+        media()
+            .then(res=> console.log(res))
+            .catch(error=>console.log(error))
+        
+        
+    }
+
+
+
     return (
         <div>
             <div className="space-y-2">
                 <h2 className="text-[#403F3F] font-semibold text-xl ">login with</h2>
                 <div className="flex items-center justify-center w-10/12 rounded-md border hover:text-green-500 hover:border-green-500">
                     <span><AiOutlineGoogle></AiOutlineGoogle></span>
-                    <button className="font-semibold">Login With Google</button>
+                    <button onClick={()=>handleLoginWithSocialMedia(googleLogin)} className="font-semibold">Login With Google</button>
                 </div>
 
                 <div className="flex items-center justify-center w-10/12 rounded-md border hover:text-green-500 hover:border-green-500">
                     <span><AiOutlineGithub></AiOutlineGithub></span>
-                    <button className="font-semibold">Login With Google</button>
+                    <button onClick={()=>handleLoginWithSocialMedia(        githubLogin)} className="font-semibold">Login With Github</button>
                 </div>
             </div>
 
